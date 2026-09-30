@@ -1,0 +1,16 @@
+name = "wire-chat"
+main = "worker.js"
+compatibility_date = "2025-01-01"
+
+# Durable Object binding used as env.CHAT_ROOM in worker.js
+[[durable_objects.bindings]]
+name = "CHAT_ROOM"
+class_name = "ChatRoom"
+
+# ChatRoom uses ctx.storage.sql, so it must be SQLite-backed
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["ChatRoom"]
+
+[observability]
+enabled = true
