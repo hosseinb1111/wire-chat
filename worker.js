@@ -5415,7 +5415,119 @@ body.room-list-hidden .sidebar > * {
     animation:
       none !important;
   }
+
+  .footer-bottom .heart,
+  .footer-bottom .coffee {
+    animation: none !important;
+  }
+
+  .github-link {
+    transition: none !important;
+  }
 }
+
+/* ============================================================
+   24. FOOTER CREDIT
+   ============================================================ */
+
+.footer-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border-strong, #ddd5c9);
+  color: var(--muted, #a29a90);
+  font-size: .7rem;
+  line-height: 1.7;
+  text-align: center;
+  flex: 0 0 auto;
+  margin-inline: 15px;
+  padding-bottom: 12px;
+}
+
+.footer-bottom .heart,
+.footer-bottom .coffee {
+  display: inline-block;
+  font-size: 1em;
+  line-height: 1;
+  transform-origin: center;
+}
+
+.footer-bottom .heart {
+  animation: heart-beat 1.8s ease-in-out infinite;
+}
+
+@keyframes heart-beat {
+  0%, 100% { transform: scale(1); }
+  15%      { transform: scale(1.25); }
+  30%      { transform: scale(1); }
+  45%      { transform: scale(1.15); }
+}
+
+.footer-bottom .coffee {
+  animation: coffee-bob 2.6s ease-in-out infinite;
+}
+
+@keyframes coffee-bob {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  40%      { transform: translateY(-2px) rotate(-6deg); }
+  70%      { transform: translateY(0) rotate(3deg); }
+}
+
+.footer-bottom .credit-name {
+  color: var(--text, #242321);
+  font-weight: 700;
+}
+
+.github-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  margin-left: 2px;
+  color: var(--text, #242321);
+  background: var(--surface-3, #f7f2e9);
+  border: 1px solid var(--border-strong, #ddd5c9);
+  border-radius: 50%;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform .22s ease, background .22s ease,
+              color .22s ease, border-color .22s ease;
+}
+
+.github-link:hover {
+  transform: scale(1.12) translateY(-1px);
+  background: var(--accent, #dc8427);
+  color: var(--accent-ink, #fff);
+  border-color: var(--accent, #dc8427);
+}
+
+.github-link:active {
+  transform: scale(0.94);
+}
+
+.github-link:focus-visible {
+  outline: 2px solid var(--accent, #dc8427);
+  outline-offset: 3px;
+}
+
+.github-link svg {
+  display: block;
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+}
+
+@media (max-width: 400px) {
+  .footer-bottom {
+    font-size: .65rem;
+  }
+}
+
 
 </style>
 
@@ -5772,6 +5884,28 @@ body.room-list-hidden .sidebar > * {
           </div>
 
         </div>
+
+          <div class="footer-bottom">
+            <span>Created with</span>
+            <span class="heart" role="img" aria-label="love">❤️</span>
+            <span>&amp;</span>
+            <span class="coffee" role="img" aria-label="coffee">☕</span>
+            <span>by</span>
+            <span class="credit-name">Hossein Seyed Bagheri</span>
+            <a
+              class="github-link"
+              href="https://github.com/hosseinb1111"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="View project on GitHub"
+              title="View on GitHub"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"
+                   aria-hidden="true" focusable="false">
+                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+              </svg>
+            </a>
+          </div>
 
       </section>
 
